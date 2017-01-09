@@ -1,3 +1,3 @@
-# This is my polymer tutorials
+## Polymer Tutorials
 
-## These tutorials are to learn and understand the Polymer framework.
+These tutorials are to learn and understand the Polymer framework.
