@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="../style/main.css">
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script>
       /*
@@ -9,10 +10,13 @@
       */
     </script>
     <link rel="import" href="../hello-world.html">
-
+    <link rel="import" href="../data-binding.html">
   </head>
   <body>
-    <h1>Hello Polymer....!</h1>
-    <hello-world></hello-world>
+  <div class="container">    
+    <hello-world first-name="Siddhant" last-name="Awati"></hello-world>
+    <data-binding country-name="India" city-name="Pune"></data-binding>
+  </div>
   </body>
 </html>
+  

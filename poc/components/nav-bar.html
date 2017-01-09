@@ -1,0 +1,45 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="nav-bar">
+  <template>
+  <style>
+    .navBar{
+      width: 100%;
+    }
+    .menuList{
+      list-style-type: none;
+      width: 70%;
+      margin: 20px auto;
+    }
+    .menuList li{
+      display: inline-block;
+      margin: 0px 5px;
+    }
+    .menuList li a{
+      color: inherit;
+      text-decoration: none;
+      padding: 10px;
+    }
+    .menuList li a:hover{
+      background: #7D1935;
+      color: #ffffff;
+      border-radius: 4px;
+    }
+  </style>
+  <nav class="navBar">
+    <ul class="menuList">
+      <li> <a href="javascript:void(0);" title="Home">Home</a></li>
+      <li> <a href="javascript:void(0);" title="About us">About Us</a></li>
+      <li> <a href="javascript:void(0);" title="ING in Society">ING in Society</a></li>
+      <li> <a href="javascript:void(0);" title="Investor relations">Investor relations</a></li>
+      <li> <a href="javascript:void(0);" title="Newsroom">Newsroom</a></li>
+      <li> <a href="javascript:void(0);" title="Careers">Careers</a></li>
+      <li> <a href="javascript:void(0);" title="Products & Services">Products</a></li>
+    </ul>
+  </nav>
+  </template>
+<script>
+Polymer({
+is: 'nav-bar'
+});
+</script>
+</dom-module>

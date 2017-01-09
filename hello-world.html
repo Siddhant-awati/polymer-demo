@@ -1,24 +1,35 @@
 <link rel="import" href="../polymer/polymer.html">
 
 <dom-module id="hello-world">
-
-
   <template>
-
     <style>
-      /* local DOM styles go here */
+      h2, h3{
+        margin: 20px 0;
+      }
       h3 {
         color: blue;
       }
     </style>
-
-    <!-- local DOM goes here -->
-    <h3>Hello World, This is Polymer demo by Siddhant..!</h3>
+    <h2>Hello World, this is Polymer....!</h2>
+    <h3>My full name is: {{fullName}}</h3>
   </template>
 
   <script>
   Polymer({
     is: 'hello-world',
+    properties: {
+      firstName: String,
+      LastName: {
+        type: String,
+        value: 'Awati'
+      },
+      fullName: {
+        computed : 'getName(firstName, LastName)'
+      }
+    },    
+    getName: function(fName, lName){
+        return fName +" "+ lName;
+    }
   });
   </script>
 

@@ -1,0 +1,44 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="data-binding">
+  <template>
+    <style>
+      h2{
+        margin-top: 40px;
+      }
+      h3{
+        margin: 10px 0;
+      }
+      h3 span{
+        color: red;        
+      }
+    </style>
+    <h2>Two way Data Binding</h2>
+    <label for="city">Enter City :</label>
+     <input id="city" type="text" value="{{cityName::input}}">
+    <h3>Address: <span>{{fullAddress}}</span></h3>
+    <h3>City: <span>{{cityName}}</span></h3>    
+  </template>
+
+  <script>
+  Polymer({
+    is: 'data-binding',
+    properties: {
+      countryName: String,
+      cityName: {
+        type: String,
+        value: String
+      },
+      fullAddress: {
+        computed : 'getAddress(countryName, cityName)'
+      }
+    },    
+    getAddress: function(countryName, cityName){
+        return countryName +", "+ cityName;
+    }
+  });
+  </script>
+
+</dom-module>
+
+     
