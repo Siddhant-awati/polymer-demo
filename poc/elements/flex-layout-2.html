@@ -1,25 +1,36 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <dom-module id="flex-layout-2">
   <template>
     <style>
       .container {
         @apply(--layout-horizontal);
+        @apply(--layout-wrap);
       }
-      .list{
-        background: #f0f0f0;
-        padding: 10px;
+      .flex-child{
+        @apply(--layout-flex);
+      }
+      .container-1{
+        @apply(--layout-vertical);
+        height: 300px;
       }
     </style>
-    <h3 class="secondary-title">Flex Layout - Container (Using Mixins)</h3>
-    <div class="container">
-        <div class="list">One</div>
-        <div class="list">Two</div>
-        <div class="list">Three</div>
-        <div class="list">Four</div>
-        <div class="list">Five</div>
-        <div class="list">Six</div>
+    <div>
+      <h3 class="secondary-title">Flex Layout - Horizontal (Using Mixins)</h3>
+      <div class="container">
+          <div class="list">One</div>
+          <div class="list flex-child">Two</div>
+          <div class="list">Three</div>
+      </div>
+      <h3 class="secondary-title">Flex Layout - Vertical (Using Mixins)</h3>
+      <div class="container-1">
+            <div class="list">One</div>
+            <div class="list flex-child">Two</div>
+            <div class="list flex-child">Three</div>
+            <div class="list">Four</div>
+      </div>
     </div>
   </template>
   <script>

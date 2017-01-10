@@ -1,0 +1,56 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+
+<dom-module id="flex-layout-4">
+  <template>
+     <style include="iron-flex iron-flex-alignment"></style>
+    <style>      
+      .container{
+        height: 120px;
+        width: 100%;
+        border: 1px solid #d6d6d6;
+        @apply(--layout-horizontal);
+        @apply(--layout-center);
+      }
+      .align-div{
+        width: 200px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 6px;
+        color: #1f1f1f;
+      }
+      .container-1{
+        
+      }
+      .container-2{
+        @apply(--layout-center-justified);
+      }
+      .container-3{
+        @apply(--layout-end-justified);
+      }
+    </style>
+    <div>
+      <h3 class="secondary-title">Flex Layout - start justified</h3>
+      <div class="container container-1">
+        <div class="align-div">Start Position</div>
+      </div>
+      <h3 class="secondary-title">Flex Layout - center justified</h3>
+      <div class="container container-2">
+        <div class="align-div">Center Position</div>
+      </div>
+      <h3 class="secondary-title">Flex Layout - end justified</h3>
+      <div class="container container-3">
+        <div class="align-div">End Position</div>
+      </div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'flex-layout-4'
+    });
+  </script>
+</dom-module>
