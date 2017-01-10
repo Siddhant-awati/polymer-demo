@@ -1,0 +1,98 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="member-details">
+  <template>
+  <style>
+    .article-excerpt {
+        font-size: 14px;
+        line-height: 22px;
+        overflow: hidden;
+    }    
+    .article-excerpt .link-wrapper {
+        color: inherit;
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        text-decoration: none;
+        height: auto;  
+    }
+    .article-excerpt .link-wrapper:hover{
+      opacity: 0.7;
+    } 
+    .article-excerpt figure {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    .profile figure {
+        width: 100%;
+        position: relative;
+        margin: 0;
+        height: 160px;
+    }
+    .article-excerpt figure + div, .three-col .article-excerpt figure {
+        margin-top: 20px;
+        line-height: 20px;
+    }
+    .profile figure img {
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 100%;
+        max-height: 100%;
+    }
+    .link-wrapper h2 {
+        color: #ff6200;
+        font-size: 18px;
+        margin:5px 0
+    }
+    .link-wrapper p{
+      margin: 5px 0;
+    }
+  </style>
+      <section class="col profile article-excerpt newrow">
+        <a class="link-wrapper" href="javascript:void(0)">
+            <figure>
+              <img src="{{src}}" alt="{{name}} Photo" class="photo">
+            </figure>
+          <h2 class="secondary-title">{{name}}</h2>
+          <p>{{desc}}</p>
+        </a>
+      </section>
+  </template>
+<script>
+Polymer({
+  is: 'member-details',
+  properties:{
+    name:String,
+    src:String,
+    desc:String
+  }
+});
+</script>
+</dom-module>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

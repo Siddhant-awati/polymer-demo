@@ -1,0 +1,36 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/google-map/google-map.html">  
+
+<dom-module id="ing-location">
+  <template>
+    <style>
+      .secondary-title{
+        color: #ff6200;
+        font-size: 20px;
+        margin: 10px 0;
+      }
+      google-map{
+        width: 800px;
+        height: 500px;
+      }
+    </style>
+    <h2 class="secondary-title">
+      Find ING in your country
+    </h2>
+    <google-map latitude="18.520697" longitude="73.855412" fit-to-markers>
+         <google-map-marker latitude="18.567050" longitude="73.829350"
+            draggable="false" title="Your Location"></google-map-marker>
+
+        <google-map-marker latitude="18.543169" longitude="73.921577"
+            draggable="false" title="ING Bank, Amenity Building, Kalyaninagar, Pune, Maharashtra 411006"></google-map-marker>
+        <google-map-marker latitude="18.644763" longitude="73.793568"
+            draggable="false" title="ING Bank, Empire Estate, Mumbai Pune Highway, Pune, Maharashtra 411019"></google-map-marker>
+               
+    </google-map>
+  </template>
+  <script>
+    Polymer({
+      is: 'ing-location'
+    });
+  </script>
+</dom-module>

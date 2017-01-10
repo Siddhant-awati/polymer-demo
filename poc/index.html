@@ -1,27 +1,35 @@
 <!doctype html>
 <html>
   <head>
-  <title>Siddhant POCs</title>
+  <title>Siddhant-Polymer POC</title>
   <link rel="stylesheet" type="text/css" href="../style/main.css">
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script>
-      /*
+    /*
       window.Polymer = window.Polymer || {};
       window.Polymer.dom = 'shadow';
       */
     </script>
-    <link rel="import" href="components/follow-us.html">
-    <link rel="import" href="components/nav-bar.html">
-    <link rel="import" href="components/board-members.html">
+    <link rel="import" href="elements/follow-us.html">
+    <link rel="import" href="elements/nav-bar.html">
+    <link rel="import" href="elements/board-members.html">  
+    <link rel="import" href="elements/ing-location.html">
+    <link rel="import" href="elements/flex-layout-1.html">
+    <link rel="import" href="elements/flex-layout-2.html">
 
   </head>
   <body>
-  <div class="container"> 
+  <div class="main-container"> 
     <nav-bar></nav-bar>   
     <hr>
-    <board-members></board-members>
+    <!-- <board-members></board-members>
     <hr>
-    <follow-us></follow-us>
+    <ing-location></ing-location>   
+    <hr>
+    <follow-us></follow-us> 
+    <hr> -->
+    <flex-layout-1></flex-layout-1>
+    <flex-layout-2></flex-layout-2>
   </div>
   </body>
 </html>

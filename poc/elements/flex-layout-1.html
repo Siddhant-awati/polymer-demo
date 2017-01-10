@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<dom-module id="flex-layout-1">
+  <template>
+    <style include="iron-flex iron-flex-alignment"></style>
+    <style>
+      .layout{
+        border: 1px solid #d6d6d6;
+      }
+      .list{
+        background: #f0f0f0;
+        padding: 10px;
+      }
+    </style>
+    <h3 class="secondary-title">Flex Layout - wrap, row</h3>
+    <div class="layout horizontal wrap">
+      <div class="list">One</div>
+      <div class="list">Two</div>
+      <div class="list">Three</div>
+      <div class="list">Four</div>
+      <div class="list">Five</div>
+      <div class="list">Six</div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'flex-layout-1'
+    });
+  </script>
+</dom-module>

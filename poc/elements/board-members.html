@@ -1,0 +1,109 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="member-details.html">
+
+<dom-module id="board-members">
+  <template>
+  <style>
+    .three-col {
+        font-size: 15px;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .three-col h1{
+          margin: 20px;
+          color: #ff6200;
+          font-size: 24px;
+    }
+    member-details{
+        min-width: 190px;
+        width: 20%;
+        margin-left: 20px;
+        float: left;
+        margin-bottom: 10px;
+    }
+    member-details:nth-of-type(4n + 1) {
+        clear: left;
+    }
+    .clear{
+      clear: both;
+    }
+  </style>
+  <div class="three-col">
+    <h1>Members Supervisory Board</h1>
+    <template is="dom-repeat" items={{members}}>
+      <member-details name={{item.name}} src={{item.src}} desc={{item.desc}}>
+      </member-details>
+    </template>
+    <div class="clear"></div>
+  </div>
+  </template>
+<script>
+Polymer({
+  is: 'board-members',
+  ready:function(){
+    this.members = [
+      {
+        name:'J. (Jeroen) van der Veer',
+        desc:'Chairman Supervisory Board  (1947, Nationality: Dutch)',
+        src:'https://www.ing.com/upload_mm/c/1/2/cid38169_Jeroen-van-der-Veer.png'
+      },{
+        name:'H.J.M. (Hermann-Josef) Lamberti',
+        desc:'Member and vice-chairman Supervisory Board  (1956, Nationality: German)',
+        src:'https://www.ing.com/upload_mm/7/8/7/cid37235_Hermann-Josef-Lamberti.png'
+      },{
+        name:'E.F.C.B. (Eric) Boyer de la Giroday',
+        desc:'Member Supervisory Board  (1952, Nationality: Belgian)',
+        src:'https://www.ing.com/upload_mm/1/0/a/cid37225_Eric-Boyer-de-la-Giroday.png'
+      },{
+        name:'H.W. (Henk) Breukink',
+        desc:'Member Supervisory Board  (1950, Nationality: Dutch)',
+        src:'https://www.ing.com/upload_mm/e/b/c/cid37233_Henk-Breukink.png'
+      },{
+        name:'I. (Isabel) Martín Castellá',
+        desc:'Member Supervisory Board  (1947, Nationality: Spanish)',
+        src:'https://www.ing.com/upload_mm/6/4/1/cid37231_Isabel-Martin-Castella.png'
+      },{
+        name:'M. (Mariana) Gheorghe',
+        desc:'Member Supervisory Board  (1956, Nationality: Romanian  and British)',
+        src:'https://www.ing.com/upload_mm/0/9/1/cid37437_Mariana-Gheorghe.png'
+      },{
+        name:'A.C. (Ann) Sherry',
+        desc:'Member Supervisory Board  (1954, Nationality: Australian)',
+        src:'https://www.ing.com/upload_mm/2/2/a/cid37253_Ann-Sherry.png'
+      },{
+        name:'R.W.P. (Robert) Reibestein',
+        desc:'Member Supervisory Board  (1956, Nationality: Dutch)',
+        src:'https://www.ing.com/upload_mm/6/2/4/cid37439_Robert-Reibestein.png'
+      }
+    ]
+  }
+
+});
+</script>
+</dom-module>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
