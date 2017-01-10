@@ -1,0 +1,50 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+
+<dom-module id="three-col-layout">
+  <template>
+     <style include="iron-flex iron-flex-alignment"></style>
+    <style> 
+      .main{
+        border: 1px solid #d6d6d6;
+        width: 100%;
+        margin-top: 20px;
+        padding: 0 20px;
+      }     
+      .container{
+        @apply(--layout-horizontal);
+        @apply(--layout-center);
+      }
+      .align-div{
+        width: 200px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 6px;
+        color: #1f1f1f;
+      }
+      .light-text{
+        color: #a8a8a8;
+        font-size: 20px;
+        margin: 10px 0;
+      }
+    </style>
+    <div class="main">
+    <h3 class="secondary-title">Three Column Layout</h3>
+    <h3 class="light-text">Art news</h3>
+      <section class="container horizontal around-justified layout">
+        <div class="align-div">Around Justified</div>
+        <div class="align-div">Around Justified</div>
+        <div class="align-div">Around Justified</div>
+      </section>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'three-col-layout'
+    });
+  </script>
+</dom-module>

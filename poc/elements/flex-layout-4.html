@@ -32,6 +32,9 @@
       .container-3{
         @apply(--layout-end-justified);
       }
+      .container-4 {
+        @apply(--layout-justified);
+      }
     </style>
     <div>
       <h3 class="secondary-title">Flex Layout - start justified</h3>
@@ -45,6 +48,16 @@
       <h3 class="secondary-title">Flex Layout - end justified</h3>
       <div class="container container-3">
         <div class="align-div">End Position</div>
+      </div><h3 class="secondary-title">Flex Layout - justified</h3>
+      <div class="container container-4">
+        <div class="align-div">Justified</div>
+        <div class="align-div">Justified</div>
+        <div class="align-div">Justified</div>
+      </div><h3 class="secondary-title">Flex Layout - around justified</h3>
+      <div class="container horizontal around-justified layout">
+        <div class="align-div">Around Justified</div>
+        <div class="align-div">Around Justified</div>
+        <div class="align-div">Around Justified</div>
       </div>
     </div>
   </template>
