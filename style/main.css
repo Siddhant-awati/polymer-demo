@@ -12,6 +12,21 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.25;
 }
 
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 5px 0;
+    font-size: 15px;
+    color: #1f1f1f;
+}
+
+.clear {
+    clear: both;
+}
+
 .main-container {
     width: 90%;
     margin: auto;
@@ -19,6 +34,16 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     padding-bottom: 50px;
     margin-bottom: 50px;
+}
+
+.main-container.ajax-poc {
+    width: 80%;
+}
+
+.main-title {
+    color: #ff6200;
+    font-size: 20px;
+    margin: 25px 0 5px 0;
 }
 
 .secondary-title {

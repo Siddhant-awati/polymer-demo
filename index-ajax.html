@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+  <title>Siddhant-Ajax POC</title>
+  <link rel="stylesheet" type="text/css" href="style/main.css">
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script>
+    /*
+      window.Polymer = window.Polymer || {};
+      window.Polymer.dom = 'shadow';
+      */
+    </script>
+    <link rel="import" href="ajax/elements/ajax-poc.html">
+
+  </head>
+  <body>
+  <div class="main-container ajax-poc"> 
+    <ajax-poc></ajax-poc>
+  </div>
+  <script>
+    var app = document.querySelector('#app');
+    app.url = function (videoId) {
+      return 'https://www.youtube.com/watch?v=' + videoId;
+    };
+  </script>
+  </body>
+</html>
+  

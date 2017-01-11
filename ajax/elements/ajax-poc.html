@@ -1,0 +1,134 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+
+<dom-module id="ajax-poc">
+  <template>
+    <style>
+      .horizontal-section-container{
+        background-color: #f0f0f0;
+        padding: 20px;
+        margin: 20px 0;
+      }
+      .horizontal-section {
+        width: 29%;
+        margin: 10px 2% 0 2%;
+        display: inline-block;
+        vertical-align: text-top;
+        min-height: 355px;
+      }
+      .video-title{
+        line-height: 18px;
+      }
+      .video-title a{
+        font-size: 16px;
+      }
+      .main-title{
+        margin-top: 0;
+      }
+      .filtered-list{
+        list-style: none;
+        display: block;
+        max-width: none;
+      }
+      .filtered-list li{
+        position: relative;
+        list-style: none;        
+      }
+      .filtered-list li a{
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        padding: 10px 0;
+        text-decoration: none;
+      }
+      .article-excerpt figure {
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+          border-radius: 6px;
+          width: 140px;
+          float: left;
+          margin: 0 20px 0 0;
+      }
+      .article-excerpt figure + div {
+          margin-bottom: 5px;
+          line-height: 15px;
+      }
+      .light-text{
+        color: #a8a8a8;
+        font-size: 14px;
+      }
+      figure img{
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        border: 0;
+        border-radius: 6px;
+      }
+      h3{
+        margin-bottom: 3px;
+        color: #ff6200;
+        font-size: 20px;
+        line-height: 25px;
+      }
+      iron-image{
+        width: 100%;
+        height: 100%;
+        min-height: 220px;
+      }
+    </style>
+    <template is="dom-bind" id="app">
+      <div class="horizontal-section-container">
+        <h1 class="main-title">Video Feed - Iron Ajax example</h1>
+        <iron-ajax auto
+            url="https://www.googleapis.com/youtube/v3/search"
+            params='{"part":"snippet", "q":"ING India", "key": "AIzaSyAuecFZ9xJXbGDkQYWBmYrtzOGJD-iDIgI", "type": "video"}'
+            handle-as="json"
+            last-response="{{ajaxResponse}}"></iron-ajax>
+
+          <template is="dom-repeat" items="[[ajaxResponse.items]]">
+            <div class="horizontal-section">
+              <iron-image src="[[item.snippet.thumbnails.high.url]]" sizing="cover" preload fade></iron-image>
+              <h2 class="video-title"><a href="[[url(item.id.videoId)]]" target="_blank">[[item.snippet.title]]</a></h2>
+              <p>[[item.snippet.description]]</p>
+            </div>
+          </template>
+      </div>  
+      <div class="horizontal-section-container">
+        <h1 class="main-title ">ING All news - Iron Ajax example</h1> 
+        <iron-ajax auto
+          url="http://localhost:8080/components/polymer-demo/data/news.json"
+          handle-as="json"
+          last-response="{{ajaxResponse}}"></iron-ajax>
+
+        <template is="dom-repeat" items="[[ajaxResponse.items]]">
+        <ul class="filtered-list">
+            <li class="article-excerpt excerpt-small has-figure">
+              <a href="javascript:void(0)" class="link-wrapper">
+                <figure>
+                  <img src="[[item.snippet.thumbnails.high.url]]">
+                </figure>
+                <div>
+                  <time datetime="2017-01-09" class="light-text">[[item.date]]</time>
+                    | <span class="light-text">[[item.section]]</span>
+                </div>
+                <h3>[[item.title]]</h3>
+                <p>[[item.description]]</p>
+                <div class="clear"></div>
+              </a>
+            </li>
+          </ul>
+        </template>  
+      </div>  
+    </template>
+</template>
+<script>
+  Polymer({
+    is: 'ajax-poc'
+  });
+
+</script>
+</dom-module>

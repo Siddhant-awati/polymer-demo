@@ -1,0 +1,82 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+
+<dom-module id="three-col-layout">
+  <template>
+     <style include="iron-flex iron-flex-alignment"></style>
+    <style> 
+      .main{
+        border: 1px solid #d6d6d6;
+        margin-top: 20px;
+        padding: 0 10px 10px;
+      }     
+      .container{
+        @apply(--layout-horizontal);
+        cursor: pointer;
+      }
+      article:hover{
+        opacity: 0.8;
+      }
+      .align-div{
+        width: 30%;
+        line-height: 20px;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 6px;
+        color: #1f1f1f;
+      }
+      .light-text{
+        color: #a8a8a8;
+        font-size: 18px;
+        margin: 10px 20px;
+      }
+      time{
+        color: #a8a8a8;
+        font-size: 14px;
+      }
+      .news-title{
+        font-size: 16px;
+        margin: 5px 0;
+        color: #ff6200;
+      }
+    </style>
+    <div class="main">
+      <h3 class="secondary-title">Three Column Layout - Using Iron flex</h3>
+      <h3 class="light-text">Art news</h3>
+        <section class="container around-justified layout">
+          <template is="dom-repeat" items={{news}}>
+            <article class="align-div">
+              <div>
+                <time>{{item.date}}</time>              
+              </div>
+              <h3 class="news-title">{{item.title}}</h3>
+              <p>{{item.desc}}</p>
+            </article>
+          </template>  
+        </section>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'three-col-layout',
+      ready:function(){
+        this.news=[
+          {
+            date:'20 December 2016',
+            title:'#ingunseenfoolforlove: Composition with two oranges wins Instagram competition',
+            desc:'Photography lovers could post their interpretation of the theme ‘Fool for Love’ during the ING Unseen Instagram competition. Visual artist and photographer Emily Cole emerged as the winner from more than 450 submissions.'
+          },{
+            date:'24 November 2016',
+            title:'ING’s art collection wins Corporate Art Awards',
+            desc:'More than 90 companies, including Coca Cola, BMW, American Express and IKEA, competed for the Corporate Art Award 2016. ING brought home two trophies.'
+          },{
+            date:'23 September 2016',
+            title:'Falling in and out of love: ING Unseen Talent Award winners announced',
+            desc:'Photographer Thomas Albdorf from Austria is the winner of the 2016 ING Unseen Talent Award (jury prize).'
+          },
+        ]
+      }
+    });
+  </script>
+</dom-module>
