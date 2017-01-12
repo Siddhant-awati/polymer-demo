@@ -1,0 +1,28 @@
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="ajax-service">
+    <template>
+        <iron-ajax auto url="http://localhost:8080/components/polymer-demo/data/news.json" handle-as="json" on-response="newsLoaded">
+        </iron-ajax>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: "ajax-service",
+        properties: {
+            news: {
+                type: Array,
+                reflectToAttribute: true,
+                notify: true
+            }
+        },
+        attached: function () {
+            this.news = [];
+        },
+        newsLoaded: function (data) {
+            this.news = data.detail.response;
+            console.log("Ajax Response ->", this.news)
+        }
+    });
+</script>

@@ -1,0 +1,150 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html">
+<dom-module id="div-collapse">
+  <template>
+    <style>
+      .main{
+        padding: 20px;
+        width: 70%;
+      }
+      .wrapper{
+        border-top: 1px solid #d6d6d6;
+      }
+      .wrapper:last-child{
+        border-bottom: 1px solid #d6d6d6;        
+      }
+      h3{
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+        color: #ff6200;
+      }
+      h3:hover{
+        background: #f0f0f0;
+      }
+      h3 a{
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+      }
+      .collapse-content{
+        padding: 5px 0 20px 10px;
+        font-size: 15px;
+        line-height: 20px;
+      }
+      h2{
+          margin: 10px 0;
+          color: #545454;
+      }
+    </style>
+    <div class="main">
+    <h2>About us (iron-collapse Example)</h2>
+      <div class="wrapper">
+        <h3 class="accordion-title">
+          <a on-click="toggle" dataId="ingProfile">Profile and Fast facts</a>
+        </h3>
+        <iron-collapse id="ingProfile">
+          <div class="collapse-content">
+            <div>We are a global financial institution with a strong European base, offering banking services. We draw on our experience and expertise, our commitment to excellent service and our global scale to meet the needs of a broad customer base, comprising individuals, families, small businesses, large corporations, institutions and governments. Our customers are at the heart of what we do.</div>
+          </div>
+        </iron-collapse>
+      </div>  
+      <div class="wrapper">
+        <h3 class="accordion-title">
+          <a on-click="toggle" dataId="ingValues">ING Values</a>
+        </h3>
+        <iron-collapse id="ingValues">
+          <div class="collapse-content">
+            <div>Our business centres around people and trust. Only by acting with professionalism and integrity can we maintain our stakeholders’ confidence and preserve our company’s reputation. The ING Values play an important role in this respect. </div>
+          </div>
+        </iron-collapse>  
+      </div>  
+      <div class="wrapper">
+        <h3 class="accordion-title">
+          <a on-click="toggle" dataId="ingPurpose">Purpose and Strategy</a>
+        </h3>
+        <iron-collapse id="ingPurpose">
+          <div class="collapse-content">
+            <div> We believe all sustainable progress is driven by people with the imagination and determination to improve their future and the futures of those around them. We empower people and organisations to realise their own vision for a better future – however modest or grand. Our purpose therefore is: Empowering people to stay a step ahead in life and in business.</div>
+          </div>
+        </iron-collapse>  
+      </div>  
+      <div class="wrapper">
+        <h3 class="accordion-title">
+          <a on-click="toggle" dataId="ingDiversity">Diversity and Inclusion</a>
+        </h3>
+        <iron-collapse id="ingDiversity">
+          <div class="collapse-content">
+            <div>Differences in gender, age, background, sexual orientation, physical ability and religious beliefs enable us to solve problems and respond to challenges in different ways. Diversity is good for business because different perspectives drive innovation, accelerate growth, and lead to more robust decisions and outcomes.  </div>
+          </div>
+        </iron-collapse>  
+      </div>  
+      <div class="wrapper">
+        <h3 class="accordion-title">
+          <a on-click="toggle" dataId="ingCorp">Corporate Governance</a>
+        </h3>
+        <iron-collapse id="ingCorp">
+          <div class="collapse-content">
+            <div>ING Bank is directly supervised by the European Central Bank (ECB) as part of the Single Supervisory Mechanism (SSM). The SSM comprises of the ECB and national competent authorities of participating Member States. The SSM is responsible for ‘prudential supervision’ (the financial soundness of financial institutions). The ECB is responsible for specific tasks in the area of prudential supervision. </div>
+          </div>
+        </iron-collapse>  
+      </div>   
+      <div class="wrapper">
+        <h3 class="accordion-title">
+          <a on-click="toggle" dataId="ingComp">Compliance</a>
+        </h3>
+        <iron-collapse id="ingComp">
+          <div class="collapse-content">
+            <div>ING is committed to the preservation of its reputation and integrity through compliance with applicable laws, regulations and ethical standards in each of the markets in which it operates. All employees are expected to adhere to these laws, regulations and ethical standards, and management is responsible for ensuring such compliance. Compliance is therefore an essential ingredient of good corporate governance. </div>
+          </div>
+        </iron-collapse>  
+      </div>   
+      <div class="wrapper">
+        <h3 class="accordion-title">
+          <a on-click="toggle" dataId="ingAnnual">Annual reporting suite</a>
+        </h3>
+        <iron-collapse id="ingAnnual">
+          <div class="collapse-content">
+            <div>ING welcomed 1.4 million new clients in 2015. It embraced the fintech revolution and it empowered more people to stay a step ahead. But these are just some of the highlights in 2015.
+To find out more see our 2015 Annual Report and Annual Review. </div>
+          </div>
+        </iron-collapse>  
+      </div> 
+    </div>    
+  </template>
+<script>
+Polymer({
+  is: 'div-collapse',
+  toggle: function(el) {
+    var element = el.srcElement.getAttribute('dataId');
+    document.querySelector('#'+element).toggle();
+  }
+});
+</script>
+</dom-module>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

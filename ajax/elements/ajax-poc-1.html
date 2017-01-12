@@ -2,20 +2,15 @@
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/iron-image/iron-image.html">
 
-<dom-module id="ajax-poc">
+<dom-module id="ajax-poc-1">
   <template>
     <style>
-      .horizontal-section-container{
-        background-color: #f0f0f0;
-        padding: 20px;
-        margin: 20px 0;
-      }
       .horizontal-section {
         width: 29%;
         margin: 10px 2% 0 2%;
         display: inline-block;
         vertical-align: text-top;
-        min-height: 355px;
+        min-height: 345px;
       }
       .video-title{
         line-height: 18px;
@@ -25,6 +20,11 @@
       }
       .main-title{
         margin-top: 0;
+      }
+      iron-image{
+        width: 100%;
+        height: 100%;
+        min-height: 220px;
       }
       .filtered-list{
         list-style: none;
@@ -68,16 +68,12 @@
         border: 0;
         border-radius: 6px;
       }
-      h3{
-        margin-bottom: 3px;
-        color: #ff6200;
-        font-size: 20px;
-        line-height: 25px;
+      h2{
+        margin: 6px 0;
+        line-height: 24px;
       }
-      iron-image{
-        width: 100%;
-        height: 100%;
-        min-height: 220px;
+      h2 a:hover{
+        color:#7c7cf2
       }
     </style>
     <template is="dom-bind" id="app">
@@ -90,44 +86,18 @@
             last-response="{{ajaxResponse}}"></iron-ajax>
 
           <template is="dom-repeat" items="[[ajaxResponse.items]]">
-            <div class="horizontal-section">
+            <article class="horizontal-section">
               <iron-image src="[[item.snippet.thumbnails.high.url]]" sizing="cover" preload fade></iron-image>
               <h2 class="video-title"><a href="[[url(item.id.videoId)]]" target="_blank">[[item.snippet.title]]</a></h2>
               <p>[[item.snippet.description]]</p>
-            </div>
+            </article>
           </template>
-      </div>  
-      <div class="horizontal-section-container">
-        <h1 class="main-title ">ING All news - Iron Ajax example</h1> 
-        <iron-ajax auto
-          url="http://localhost:8080/components/polymer-demo/data/news.json"
-          handle-as="json"
-          last-response="{{ajaxResponse}}"></iron-ajax>
-
-        <template is="dom-repeat" items="[[ajaxResponse.items]]">
-        <ul class="filtered-list">
-            <li class="article-excerpt excerpt-small has-figure">
-              <a href="javascript:void(0)" class="link-wrapper">
-                <figure>
-                  <img src="[[item.snippet.thumbnails.high.url]]">
-                </figure>
-                <div>
-                  <time datetime="2017-01-09" class="light-text">[[item.date]]</time>
-                    | <span class="light-text">[[item.section]]</span>
-                </div>
-                <h3>[[item.title]]</h3>
-                <p>[[item.description]]</p>
-                <div class="clear"></div>
-              </a>
-            </li>
-          </ul>
-        </template>  
-      </div>  
+      </div>         
     </template>
 </template>
 <script>
   Polymer({
-    is: 'ajax-poc'
+    is: 'ajax-poc-1'
   });
 
 </script>

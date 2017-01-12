@@ -1,0 +1,92 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="ajax-service.html">
+
+<dom-module id="ajax-poc-2">
+  <template>
+    <style>
+      .main-title{
+        margin-top: 0;
+      }
+      .filtered-list{
+        list-style: none;
+        display: block;
+        max-width: none;
+      }
+      .filtered-list article{
+        position: relative;
+        list-style: none;    
+        padding: 5px 10px;    
+        cursor: pointer;
+      }
+      .filtered-list article a{
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        padding: 10px 0;
+        text-decoration: none;
+      }
+      .light-text{
+        color: #a8a8a8;
+        font-size: 14px;
+      }
+      .article-excerpt figure {
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+          border-radius: 6px;
+          width: 140px;
+          float: left;
+          margin: 0 20px 0 0;
+      }
+      figure img{
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        border: 0;
+        border-radius: 6px;
+      }
+      h3{
+        margin: 3px 0;
+        color: #ff6200;
+        font-size: 18px;
+        line-height: 20px;
+      }
+      article:hover{
+        background: #ffffff;
+      }
+    </style>
+    <template is="dom-bind">
+      <div class="horizontal-section-container">
+        <h1 class="main-title ">ING All news - Iron Ajax example</h1> 
+        <ajax-service news={{news}}></ajax-service>
+
+          <section class="filtered-list">
+            <template is="dom-repeat" items="{{news}}">
+              <article class="article-excerpt excerpt-small has-figure">
+                <a href="javascript:void(0)" class="link-wrapper">
+                  <figure>
+                    <img src="{{item.img}}">
+                  </figure>
+                  <div>
+                    <time datetime="2017-01-09" class="light-text">[[item.date]]</time>
+                       <span class="light-text">| [[item.section]]</span>
+                  </div>
+                  <h3>[[item.title]]</h3>
+                  <p>[[item.description]]</p>
+                  <div class="clear"></div>
+                </a>
+              </article>
+            </template>  
+          </section>
+      </div>  
+    </template>
+</template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'ajax-poc-2'
+  });
+</script>
