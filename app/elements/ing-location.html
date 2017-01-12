@@ -4,29 +4,36 @@
 <dom-module id="ing-location">
   <template>
     <style>
+      .location{
+        width: 80%;
+        padding: 0 15px;
+        margin: auto;
+      }
       .secondary-title{
         color: #ff6200;
         font-size: 20px;
         margin: 10px 0;
       }
       google-map{
-        width: 800px;
+        width: 90%;
         height: 500px;
       }
     </style>
-    <h2 class="secondary-title">
+    <div class="location">
+      <h2 class="secondary-title">
       Find ING in your country (Goole-map integration)
-    </h2>
-    <google-map latitude="18.520697" longitude="73.855412" fit-to-markers>
-         <google-map-marker latitude="18.567050" longitude="73.829350"
-            draggable="false" title="Your Location"></google-map-marker>
+      </h2>
+      <google-map latitude="18.520697" longitude="73.855412" fit-to-markers>
+           <google-map-marker latitude="18.567050" longitude="73.829350"
+              draggable="false" title="Your Location"></google-map-marker>
 
-        <google-map-marker latitude="18.543169" longitude="73.921577"
-            draggable="false" title="ING Bank, Amenity Building, Kalyaninagar, Pune, Maharashtra 411006"></google-map-marker>
-        <google-map-marker latitude="18.644763" longitude="73.793568"
-            draggable="false" title="ING Bank, Empire Estate, Mumbai Pune Highway, Pune, Maharashtra 411019"></google-map-marker>
-               
-    </google-map>
+          <google-map-marker latitude="18.543169" longitude="73.921577"
+              draggable="false" title="ING Bank, Amenity Building, Kalyaninagar, Pune, Maharashtra 411006"></google-map-marker>
+          <google-map-marker latitude="18.644763" longitude="73.793568"
+              draggable="false" title="ING Bank, Empire Estate, Mumbai Pune Highway, Pune, Maharashtra 411019"></google-map-marker>
+                 
+      </google-map>
+    </div>
   </template>
   <script>
     Polymer({
