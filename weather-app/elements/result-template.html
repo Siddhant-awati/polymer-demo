@@ -30,6 +30,18 @@
 	}
 	ul.report li.first{
 		background-color: #d6d6d6;
+		text-align: center;
+		font-family: 'Noto Serif Bold', serif;
+		font-weight: bold;
+		font-size: 1.05em;
+	}
+	ul.report li.condition{
+		position: relative;
+	}
+	ul.report li.condition img{
+		position: absolute;
+		top: 0;
+    	margin-left: 10px;
 	}
 	li + li{
 		border-top: 1px dotted #d6d6d6;
@@ -55,23 +67,23 @@
 	<template>
 		<city-details class="cityDetails" ajax-data={{ajaxData}}></city-details>
 		<div class="container horizontal layout wrap">
-			<template is="dom-repeat" items={{ajaxData.list}}>
+			<template is="dom-repeat" items={{ajaxData.forecast.forecastday}}>
 				<div class="card">
 					<paper-material>
 						<ul class="report">
 							<li class="first">
-							<time>{{updateDateDetails(index)}}</time> - 
-							<template is="dom-repeat" items={{item.weather}} as="weather">
-							<span class="highlighter">{{weather.description}} </span>
-							</template>
+								<time>{{item.date}} </time>
 							</li>
-							<li>Max Temp(Celsius) - <span class="highlighter">{{item.temp.max}}</span></li>
-							<li>Max Temp(Celsius) - <span class="highlighter">{{item.temp.min}}</span></li>
-							<li>Humidity(%) - <span class="highlighter">{{item.humidity}}</span></li>
-							<li>Atmospheric pressure(hPa) - <span class="highlighter">{{item.pressure}}</span></li>
-							<li>Wind direction(degrees)- <span class="highlighter">{{item.deg}}</span></li>
-							<li>Cloudiness(%) - <span class="highlighter">{{item.clouds}}</span></li>
-							<li>Wind speed(m/s) - <span class="highlighter">{{item.speed}}</span></li>
+							<li class="condition">
+								<span class="highlighter">{{item.day.condition.text}}</span>
+								<img src="{{item.day.condition.icon}}" height="40px" width="40px">
+								</li>
+							<li>Sunrise => <span class="highlighter">{{item.astro.sunrise}}</span></li>
+							<li>Sunset => <span class="highlighter">{{item.astro.sunset}}</span></li>
+							<li>Maximum Temp (C) => <span class="highlighter">{{item.day.maxtemp_c}}</span></li>
+							<li>Minimum Temp (C) => <span class="highlighter">{{item.day.mintemp_c}}</span></li>
+							<li>Total Precipitation (mm) => <span class="highlighter">{{item.day.totalprecip_mm}}</span></li>
+							<li>Wind speed (mph) => <span class="highlighter">{{item.day.maxwind_mph}}</span></li>
 						</ul>
 					</paper-material>
 				</div>
@@ -80,15 +92,7 @@
 	</template>
 	<script>
 		Polymer({
-			is:"result-template",
-			updateDateDetails:function(index){
-				index += 1;
-				var today = new Date();
-				var dt = new Date();
-				dt.setDate(today.getDate() + index);
-				return dt.toDateString();
-				
-			}	
+			is:"result-template"				
 		})
 	</script>
 </dom-module>

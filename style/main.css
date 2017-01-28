@@ -75,6 +75,27 @@ h3 {
     line-height: 25px;
 }
 
+ul.demos {
+    list-style-type: none;
+    margin: 20px 0;
+}
+
+ul.demos li {
+    display: inline-block;
+    margin: 10px;
+}
+
+ul.demos li a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6200;
+    border: 1px solid #ff6200;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1em;
+}
+
 .list {
     background: #f0f0f0;
     padding: 10px;

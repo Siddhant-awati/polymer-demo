@@ -108,7 +108,7 @@
 			<input is="iron-input" class="cityName" bind-value="{{cityName}}" allowed-pattern="[a-zA-Z ]"></input>
 			</div>
 			<div class="form-elements">
-			<label>Number of Days: <span class="count">{{daysCount}}</span></label> <paper-slider id="daysCountId" pin snaps min="4" max="16" max-markers="16" step="4" value="4" class="daysSlider"></paper-slider>
+			<label>Number of Days: <span class="count">{{daysCount}}</span></label> <paper-slider id="daysCountId" pin snaps min="2" max="10" max-markers="10" step="2" value="4" class="daysSlider"></paper-slider>
 			</div>
 	    	<div class="clear"></div>
 			<paper-button class="primary-button" raised on-tap="getWeatherData">Submit</paper-button>
@@ -117,12 +117,13 @@
 		</div>
 		<iron-ajax
 			id="ajaxElement"
-		    url="http://api.openweathermap.org/data/2.5/forecast/daily"
-		    params="{{paramsObj}}"
+		    url="https://api.apixu.com/v1/forecast.json"
 		    handle-as="json"
+		    params="{{paramsObj}}"
 		    on-response="dataReceived"
 		    on-error="alertError"
-		    last-response="{{ajaxResponse}}">
+		    last-response="{{ajaxResponse}}"
+		    debounce-duration="300">
 	    </iron-ajax>
 		<result-template ajax-data="{{ajaxData}}"></result-template>
 	</paper-material> 
@@ -163,7 +164,7 @@
 				console.log('this.ajaxData ', this.ajaxData );
 			},
 			alertError:function(err){
-				alert(err.detail.error);
+				alert(err.detail.error);				
 			},
 			getWeatherData:function(){
 				var city = document.querySelector('input.cityName').bindValue;
@@ -175,9 +176,8 @@
 				else{
 					this.paramsObj = {
 						"q" : city, 
-						"cnt" : days,
-						"APPID" : "1d5a82dd95779d2d9702c5940d0f2a1d",
-						"units":"metric"
+						"days" : days,
+						"key" : "0bd2fa780bc946d8b2f05134172801"
 					}
 					ajaxForm.generateRequest()
 				}
